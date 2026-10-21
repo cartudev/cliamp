@@ -82,7 +82,7 @@ func (m *Model) playbackState() (playlist.Track, playback.State) {
 			Genre:       track.Genre,
 			TrackNumber: track.TrackNumber,
 			URL:         track.Path,
-			ArtURL:      track.AlbumArtURL,
+			ArtURL:      m.artworkURL(track),
 			Duration:    duration,
 		},
 		VolumeDB:    m.player.Volume(),
@@ -90,6 +90,18 @@ func (m *Model) playbackState() (playlist.Track, playback.State) {
 		Position:    position,
 		Seekable:    m.player.Seekable(),
 	}
+}
+
+// artworkURL resolves the cover of the current track. Providers that keep the
+// art inside the audio file expose it on demand, so the image can appear
+// without blocking the track list.
+func (m *Model) artworkURL(track playlist.Track) string {
+	if artwork, ok := m.provider.(provider.ArtworkProvider); ok {
+		if url, found := artwork.ArtworkFor(track); found {
+			return url
+		}
+	}
+	return track.AlbumArtURL
 }
 
 // playerStatus returns the player state that Lua plugins see: "playing",

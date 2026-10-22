@@ -411,8 +411,8 @@ func setupCommand() *cli.Command {
 		Name:  "setup",
 		Usage: "interactive wizard to configure remote providers",
 		Description: "Walks through configuring Navidrome, Plex, Jellyfin, Spotify,\n" +
-			"Qobuz, Tidal, NetEase, Audiobookshelf, and YouTube Music. Validates\n" +
-			"connections and writes ~/.config/cliamp/config.toml.",
+			"Qobuz, Tidal, NetEase, Audiobookshelf, YouTube Music and Telegram.\n" +
+			"Validates connections and writes ~/.config/cliamp/config.toml.",
 
 		Action: func(ctx context.Context, c *cli.Command) error {
 			return cmd.Setup()

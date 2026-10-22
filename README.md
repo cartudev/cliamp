@@ -107,7 +107,7 @@ cliamp https://example.com/stream  # play a URL
 
 Press `Ctrl+K` to see all keybindings.
 
-**Configure remote providers** such as Navidrome, Lyrion, Plex, Jellyfin, Emby, Audiobookshelf, Spotify, Qobuz, Tidal, Mixcloud, YouTube Music, NetEase Cloud Music, and Telegram with the interactive wizard:
+**Configure remote providers** such as Navidrome, Lyrion, Plex, Jellyfin, Emby, Audiobookshelf, Spotify, Qobuz, Tidal, Mixcloud, YouTube Music and NetEase Cloud Music with the interactive wizard:
 
 ```sh
 cliamp setup

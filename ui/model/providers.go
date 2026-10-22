@@ -399,6 +399,8 @@ func providerKeyForShortcut(key string) string {
 		return "qobuz"
 	case "T":
 		return "tidal"
+	case "U":
+		return "telegram"
 	case "L":
 		return "local"
 	case "R":

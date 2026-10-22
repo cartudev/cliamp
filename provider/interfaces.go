@@ -436,3 +436,13 @@ type TrackWindow interface {
 type TrackPager interface {
 	TracksPage(playlistID string, offset int) (tracks []playlist.Track, next int, err error)
 }
+
+// ChatFilter is implemented by a provider whose list can be narrowed to a set
+// of sources, such as the chats of an account. Dialogs returns every source,
+// Chats the current filter, and SetChats persists and applies a new one. An
+// empty filter lists everything.
+type ChatFilter interface {
+	Dialogs() ([]playlist.PlaylistInfo, error)
+	Chats() []string
+	SetChats(chats []string) error
+}

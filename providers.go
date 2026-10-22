@@ -178,7 +178,7 @@ func buildProviders(cfg config.Config, interactive bool) *providerSet {
 		nav.SaveSort = config.SaveNavidromeSort
 		add("navidrome", nav)
 	}
-	if p := telegram.NewFromConfig(cfg.Telegram, interactive); p != nil {
+	if p := telegram.NewFromConfig(cfg.Telegram); p != nil {
 		add("telegram", p)
 	}
 	lyr := lyrion.NewFromConfig(cfg.Lyrion)
